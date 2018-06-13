@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     .subscribe((data: Data) => {
       if (data.message) {
         this.auth.setLogged(true, data.jsonRetorno[0].email);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
       }
 
     });

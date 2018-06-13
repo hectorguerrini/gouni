@@ -9,6 +9,7 @@ import { PrincipalComponent } from './pages/principal/principal.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
+import { ListaComponent } from './pages/lista/lista.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LoginComponent } from './pages/login/login.component';
     NavbarComponent,
     PrincipalComponent,
     CadastroComponent,
-    LoginComponent
+    LoginComponent,
+    ListaComponent
 
   ],
   imports: [

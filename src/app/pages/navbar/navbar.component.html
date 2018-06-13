@@ -57,6 +57,9 @@
               <li class="list-inline-item" *ngIf="logged">
                 <i class="fa fa-user pr-1 pl-10"></i>{{user}}
               </li>
+              <li class="list-inline-item" *ngIf="logged" (click)="signOut()">
+                <i class="fa fa-sign-out pr-1 pl-10"></i>Sair
+              </li>
 
               <!-- <li class="list-inline-item">
                 <i class="fa fa-graduation-cap pr-1 pl-10"></i>Para faculdades</li> -->
@@ -133,8 +136,8 @@
 
                     <!-- mega-menu start -->
                     <li class="nav-item dropdown active mega-menu mega-menu--wide">
-                      <a class="nav-link dropdown-toggle" id="first-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
-                      <ul class="dropdown-menu" aria-labelledby="first-dropdown">
+                      <a routerLink="/home" class="nav-link dropdown-toggle" id="first-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" router>Home</a>
+                      <!--<ul class="dropdown-menu" aria-labelledby="first-dropdown">
                         <li>
                           <div class="row">
                             <div class="col-md-12">
@@ -184,7 +187,7 @@
                                     </li>
                                   </ul>
                                 </div>
-                                <!-- <div class="col-lg-3">
+                                 <div class="col-lg-3">
                                   <div class="divider"></div>
                                   <ul class="menu">
                                     <li>
@@ -308,12 +311,12 @@
                                       </a>
                                     </li>
                                   </ul>
-                                </div> -->
+                                </div>
                               </div>
                             </div>
                           </div>
                         </li>
-                      </ul>
+                      </ul> -->
                     </li>
                     <!-- mega-menu end -->
                     <!-- mega-menu start -->
