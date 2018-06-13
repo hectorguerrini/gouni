@@ -1,0 +1,491 @@
+<div class="header-container">
+  <div class="header-top dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-2 col-md-5">
+          <!-- header-top-first start -->
+          <!-- ================ -->
+          <div class="header-top-first clearfix">
+            <ul class="social-links circle small clearfix hidden-sm-down">
+              <!-- <li class="twitter"><a target="_blank" href="http://www.twitter.com/GoUniOficial"><i class="fa fa-twitter"></i></a></li> -->
+              <!--li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li-->
+              <!-- <li class="linkedin"><a target="_blank" href="http://www.linkedin.com/GoUniOficial"><i class="fa fa-linkedin"></i></a></li> -->
+              <!--li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+                    <li class="youtube"><a target="_blank" href="http://www.youtube.com"><i class="fa fa-youtube-play"></i></a></li>
+                    <li class="flickr"><a target="_blank" href="http://www.flickr.com"><i class="fa fa-flickr"></i></a></li-->
+              <li class="facebook">
+                <a target="_blank" href="http://www.facebook.com/GoUniOficial">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <!--li class="pinterest"><a target="_blank" href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li-->
+            </ul>
+            <div class="social-links hidden-md-up circle small">
+              <div class="btn-group dropdown">
+                <button id="header-top-drop-1" type="button" class="btn dropdown-toggle dropdown-toggle--no-caret" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-share-alt"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-animation" aria-labelledby="header-top-drop-1">
+                  <!-- <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li> -->
+                  <!--li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li-->
+                  <!-- <li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li> -->
+                  <!--li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="youtube"><a target="_blank" href="http://www.youtube.com"><i class="fa fa-youtube-play"></i></a></li>
+                        <li class="flickr"><a target="_blank" href="http://www.flickr.com"><i class="fa fa-flickr"></i></a></li-->
+                  <li class="facebook">
+                    <a target="_blank" href="http://www.facebook.com">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                  </li>
+                  <!--li class="pinterest"><a target="_blank" href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li-->
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- header-top-first end -->
+        </div>
+        <div class="col-10 col-md-7">
+
+          <!-- header-top-second start -->
+          <!-- ================ -->
+          <div id="header-top-second" class="clearfix text-right">
+            <ul class="list-inline">
+              <li class="list-inline-item" *ngIf="!logged">
+                <a routerLink="/login"><i class="fa fa-user pr-1 pl-10" ></i>Entrar</a>
+              </li>
+              <li class="list-inline-item" *ngIf="logged">
+                <i class="fa fa-user pr-1 pl-10"></i>{{user}}
+              </li>
+
+              <!-- <li class="list-inline-item">
+                <i class="fa fa-graduation-cap pr-1 pl-10"></i>Para faculdades</li> -->
+            </ul>
+          </div>
+          <!-- header-top-second end -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <header class="header fixed fixed-desktop clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-auto hidden-md-down pl-3">
+          <!-- header-first start -->
+          <!-- ================ -->
+          <div class="header-first clearfix">
+
+            <!-- logo -->
+            <div id="logo" class="logo">
+              <a href="index.html">
+                <img id="logo_img" src="assets/images/logo_gold.png" alt="Go Uni">
+              </a>
+            </div>
+
+            <!-- name-and-slogan -->
+            <div class="site-slogan">
+              Chega de perder seu tempo!
+            </div>
+
+          </div>
+          <!-- header-first end -->
+
+        </div>
+        <div class="col-lg-8 col-xl-9">
+
+          <!-- header-second start -->
+          <!-- ================ -->
+          <div class="header-second clearfix">
+
+            <!-- main-navigation start -->
+            <!-- classes: -->
+            <!-- "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick" -->
+            <!-- "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated" -->
+            <!-- ================ -->
+            <div class="main-navigation  animated">
+              <nav class="navbar navbar-toggleable-md navbar-light p-0">
+
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar-collapse-1"
+                  aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-brand clearfix hidden-lg-up">
+
+                  <!-- logo -->
+                  <div id="logo-mobile" class="logo">
+                    <a href="index.html">
+                      <img id="logo-img-mobile" src="assets/images/logo_gold.png" alt="The Project">
+                    </a>
+                  </div>
+
+                  <!-- name-and-slogan -->
+                  <div class="site-slogan">
+                    Multipurpose HTML5 Template
+                    <i class="fa fa-graduation-cap-o pr-1 pl-10"></i>
+                  </div>
+
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                  <!-- main-menu -->
+                  <ul class="navbar-nav ml-xl-auto">
+
+                    <!-- mega-menu start -->
+                    <li class="nav-item dropdown active mega-menu mega-menu--wide">
+                      <a class="nav-link dropdown-toggle" id="first-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+                      <ul class="dropdown-menu" aria-labelledby="first-dropdown">
+                        <li>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <h4 class="title">
+                                <i class="fa fa-laptop pr-2"></i> Demos</h4>
+                              <div class="row">
+                                <div class="col-lg-3">
+                                  <div class="divider"></div>
+                                  <ul class="menu">
+                                    <li>
+                                      <a href="index.html">
+                                        <i class="icon-home pr-2"></i>Home Default</a>
+                                    </li>
+                                    <li>
+                                      <a href="index-rtl.html">
+                                        <i class="icon-home pr-2"></i>Home Default - RTL
+                                        <span class="badge">v1.4</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="index-corporate-1.html">
+                                        <i class="icon-suitcase pr-2"></i>Corporate 1</a>
+                                    </li>
+                                    <li>
+                                      <a href="index-corporate-2.html">
+                                        <i class="icon-suitcase pr-2"></i>Corporate 2</a>
+                                    </li>
+                                    <li>
+                                      <a href="index-corporate-3.html">
+                                        <i class="icon-suitcase pr-2"></i>Corporate 3</a>
+                                    </li>
+                                    <li>
+                                      <a href="index-corporate-4.html">
+                                        <i class="icon-suitcase pr-2"></i>Corporate 4
+                                        <span class="badge">v1.2</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="index-corporate-5.html">
+                                        <i class="icon-suitcase pr-2"></i>Corporate 5 (Law Firm)
+                                        <span class="badge">v1.3</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="index-shop.html">
+                                        <i class="icon-basket-1 pr-2"></i>Commerce 1</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <!-- <div class="col-lg-3">
+                                  <div class="divider"></div>
+                                  <ul class="menu">
+                                    <li>
+                                      <a href="index-shop-2.html">
+                                        <i class="icon-basket-1 pr-2"></i>Commerce 2</a>
+                                    </li>
+                                    <li>
+                                      <a href="index-portfolio.html">
+                                        <i class="icon-briefcase pr-2"></i>Portfolio/Agency</a>
+                                    </li>
+                                    <li>
+                                      <a href="index-portfolio-2.html">
+                                        <i class="icon-camera pr-2"></i>Portfolio 2
+                                        <span class="badge">v1.4</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="index-medical.html">
+                                        <i class="fa fa-ambulance pr-2"></i>Medical</a>
+                                    </li>
+                                    <li>
+                                      <a href="index-restaurant.html">
+                                        <i class="fa fa-cutlery pr-2"></i>Restaurant</a>
+                                    </li>
+                                    <li>
+                                      <a href="index-restaurant-2.html">
+                                        <i class="fa fa-cutlery pr-2"></i>Restaurant 2
+                                        <span class="badge">v1.3</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="index-wedding.html">
+                                        <i class="icon-heart pr-2"></i>Wedding</a>
+                                    </li>
+                                    <li>
+                                      <a href="index-landing.html">
+                                        <i class="fa fa-star pr-2"></i>Landing Page</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div class="col-lg-3">
+                                  <div class="divider"></div>
+                                  <ul class="menu">
+                                    <li>
+                                      <a href="index-landing-2.html">
+                                        <i class="fa fa-star pr-2"></i>Landing Page 2
+                                        <span class="badge">v1.3</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="page-coming-soon.html">
+                                        <i class="fa fa-clock-o pr-2"></i>Coming Soon</a>
+                                    </li>
+                                    <li>
+                                      <a href="index-one-page.html">
+                                        <i class="icon-home pr-2"></i>One Page Version</a>
+                                    </li>
+                                    <li>
+                                      <a href="index-construction.html">
+                                        <i class="fa fa-building pr-2"></i>Construction
+                                        <span class="badge">v1.1</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="index-education.html">
+                                        <i class="fa fa-graduation-cap pr-2"></i>Education
+                                        <span class="badge">v1.1</span>
+                                      </a>
+                                    </li>
+                                    <li class="active">
+                                      <a href="index-hotel.html">
+                                        <i class="fa fa-bed pr-2"></i>Hotel
+                                        <span class="badge">v1.1</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="index-blog.html">
+                                        <i class="fa fa-pencil pr-2"></i>Blog
+                                        <span class="badge">v1.1</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="index-blog-2.html">
+                                        <i class="fa fa-pencil pr-2"></i>Blog 2
+                                        <span class="badge">v1.3</span>
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div class="col-lg-3">
+                                  <div class="divider"></div>
+                                  <ul class="menu">
+                                    <li>
+                                      <a href="index-beauty.html">
+                                        <i class="fa fa-magic pr-2"></i>Beauty Center
+                                        <span class="badge">v1.1</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="index-gym.html">
+                                        <i class="fa fa-heartbeat pr-2"></i>Gym
+                                        <span class="badge">v1.2</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="index-resume.html">
+                                        <i class="fa fa-user pr-2"></i>Resume
+                                        <span class="badge">v1.2</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="index-agency.html">
+                                        <i class="fa fa-users pr-2"></i>Agency
+                                        <span class="badge">v1.2</span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="index-logistics.html">
+                                        <i class="fa fa-truck pr-2"></i>Logistics
+                                        <span class="badge">v1.2</span>
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </div> -->
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <!-- mega-menu end -->
+                    <!-- mega-menu start -->
+                    <!-- <li class="nav-item dropdown  mega-menu mega-menu--wide">
+                      <a class="nav-link dropdown-toggle" id="second-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nosso time</a>
+                      <ul class="dropdown-menu" aria-labelledby="second-dropdown">
+                        <li>
+                          <div class="row">
+                            <div class="col-lg-8">
+                              <h4 class="title">Pages</h4>
+                              <div class="row">
+                                <div class="col-lg-4">
+                                  <div class="divider"></div>
+                                  <ul class="menu">
+                                    <li>
+                                      <a href="page-about.html">
+                                        <i class="fa fa-angle-right"></i>About Us 1</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-about-2.html">
+                                        <i class="fa fa-angle-right"></i>About Us 2</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-about-3.html">
+                                        <i class="fa fa-angle-right"></i>About Us 3</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-about-4.html">
+                                        <i class="fa fa-angle-right"></i>About Us 4</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-about-me.html">
+                                        <i class="fa fa-angle-right"></i>About Me</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-team.html">
+                                        <i class="fa fa-angle-right"></i>Our Team - Options 1</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-team-2.html">
+                                        <i class="fa fa-angle-right"></i>Our Team - Options 2</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-team-3.html">
+                                        <i class="fa fa-angle-right"></i>Our Team - Options 3</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-coming-soon.html">
+                                        <i class="fa fa-angle-right"></i>Coming Soon Page</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-faq.html">
+                                        <i class="fa fa-angle-right"></i>FAQ page</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="divider"></div>
+                                  <ul class="menu">
+                                    <li>
+                                      <a href="page-services.html">
+                                        <i class="fa fa-angle-right"></i>Services 1</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-services-2.html">
+                                        <i class="fa fa-angle-right"></i>Services 2</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-services-3.html">
+                                        <i class="fa fa-angle-right"></i>Services 3</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-contact.html">
+                                        <i class="fa fa-angle-right"></i>Contact 1</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-contact-2.html">
+                                        <i class="fa fa-angle-right"></i>Contact 2</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-contact-3.html">
+                                        <i class="fa fa-angle-right"></i>Contact 3</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-login.html">
+                                        <i class="fa fa-angle-right"></i>Login 1</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-login-2.html">
+                                        <i class="fa fa-angle-right"></i>Login 2 - Fullsreen</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-signup.html">
+                                        <i class="fa fa-angle-right"></i>Sign Up 1</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-signup-2.html">
+                                        <i class="fa fa-angle-right"></i>Sign Up 2 - Fullsreen</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="divider"></div>
+                                  <ul class="menu">
+                                    <li>
+                                      <a href="page-404.html">
+                                        <i class="fa fa-angle-right"></i>404 error</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-404-2.html">
+                                        <i class="fa fa-angle-right"></i>404 error - Parallax</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-left-sidebar.html">
+                                        <i class="fa fa-angle-right"></i>Left Sidebar</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-right-sidebar.html">
+                                        <i class="fa fa-angle-right"></i>Right Sidebar</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-two-sidebars.html">
+                                        <i class="fa fa-angle-right"></i>Two Sidebars</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-two-sidebars-left.html">
+                                        <i class="fa fa-angle-right"></i>Two Sidebars Left</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-two-sidebars-right.html">
+                                        <i class="fa fa-angle-right"></i>Two Sidebars Right</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-no-sidebars.html">
+                                        <i class="fa fa-angle-right"></i>No Sidebars</a>
+                                    </li>
+                                    <li>
+                                      <a href="page-sitemap.html">
+                                        <i class="fa fa-angle-right"></i>Sitemap</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-3 hidden-md-down">
+                              <h4 class="title">Premium HTML5 Template</h4>
+                              <p class="mb-2">The Project is perfectly suitable for corporate, business and company webpages.</p>
+                              <img src="assets/images/section-image-3.png" alt="The Project">
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li> -->
+                    <!-- mega-menu end -->
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <!-- main-navigation end -->
+          </div>
+          <!-- header-second end -->
+        </div>
+        <!-- <div class="col-auto ml-auto hidden-md-down">
+
+          <div class="header-dropdown-buttons">
+            <a href="page-contact.html" class="btn btn-sm btn-default">Solta a voz!
+              <i class="fa fa-envelope-o pl-1"></i>
+            </a>
+          </div>
+
+        </div> -->
+      </div>
+    </div>
+  </header>
+</div>
