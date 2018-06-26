@@ -8,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalComponent implements OnInit {
   curso: string;
-  constructor() { }
+  constructor() {
+    console.log('Constructor Principal');
+  }
 
   ngOnInit() {
+    console.log('ngOnInit Principal');
   }
 
 

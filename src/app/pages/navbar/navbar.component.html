@@ -51,14 +51,15 @@
           <!-- ================ -->
           <div id="header-top-second" class="clearfix text-right">
             <ul class="list-inline">
-              <li class="list-inline-item" *ngIf="!logged">
-                <a routerLink="/login"><i class="fa fa-user pr-1 pl-10" ></i>Entrar</a>
+
+              <li class="list-inline-item" *ngIf="!(logged | async)">
+                <a routerLink="/gouni/login"><i class="fa fa-user pr-1 pl-10" ></i>Entrar</a>
               </li>
-              <li class="list-inline-item" *ngIf="logged">
-                <i class="fa fa-user pr-1 pl-10"></i>{{user}}
+              <li class="list-inline-item" *ngIf="logged | async">
+                <i class="fa fa-user pr-1 pl-10"></i>{{user | async}}
               </li>
-              <li class="list-inline-item" *ngIf="logged" (click)="signOut()">
-                <i class="fa fa-sign-out pr-1 pl-10"></i>Sair
+              <li class="list-inline-item" *ngIf="logged | async" (click)="signOut()">
+                <a routerLink="/gouni"><i class="fa fa-sign-out pr-1 pl-10"></i>Sair</a>
               </li>
 
               <!-- <li class="list-inline-item">
@@ -136,7 +137,7 @@
 
                     <!-- mega-menu start -->
                     <li class="nav-item dropdown active mega-menu mega-menu--wide">
-                      <a routerLink="/home" class="nav-link dropdown-toggle" id="first-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" router>Home</a>
+                      <a routerLink="/" class="nav-link dropdown-toggle" id="first-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" router>Home</a>
                       <!--<ul class="dropdown-menu" aria-labelledby="first-dropdown">
                         <li>
                           <div class="row">
@@ -492,3 +493,4 @@
     </div>
   </header>
 </div>
+<router-outlet></router-outlet>

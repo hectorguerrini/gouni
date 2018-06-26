@@ -1,21 +1,35 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
+
+
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ListaComponent } from './pages/lista/lista.component';
+import { NavbarComponent } from './pages/navbar/navbar.component';
+
+
 const routes: Routes = [
-  { path: 'home', component: PrincipalComponent },
-  { path: 'signup', component: CadastroComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'lista/', component: ListaComponent },
-  { path: 'lista/:curso', component: ListaComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: 'gouni', component: NavbarComponent,
+    children: [
+
+      { path: '', component: PrincipalComponent },
+      { path: 'signup', component: CadastroComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'lista/', component: ListaComponent },
+      { path: 'lista/:curso', component: ListaComponent },
+
+    ]
+  },
+  {path: '' , redirectTo: '/gouni', pathMatch: 'full'}
+
+
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
+  exports: [RouterModule]
 
 })
 export class AppRoutingModule { }
