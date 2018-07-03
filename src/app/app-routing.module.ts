@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'gouni', component: NavbarComponent,
     children: [
 
-      { path: '', component: PrincipalComponent },
+       { path: '', component: PrincipalComponent },
       { path: 'signup', component: CadastroComponent },
       { path: 'login', component: LoginComponent },
       { path: 'lista/', component: ListaComponent },

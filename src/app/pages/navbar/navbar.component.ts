@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../auth.service';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Router } from '@angular/router';
+
+import { LoginComponent } from '../login/login.component';
+import { AuthService } from '../../auth.service';
+
 import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -10,7 +15,10 @@ import { Observable } from 'rxjs';
 export class NavbarComponent implements OnInit {
   logged: Observable<boolean>;
   user:  Observable<string>;
-  constructor(private auth: AuthService, private router: Router) {
+  animal: string;
+  name: string;
+
+  constructor(private auth: AuthService, private router: Router, public dialog: MatDialog) {
     console.log('Constructor NavBar');
   }
 
@@ -23,6 +31,22 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  login() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.hasBackdrop = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '630px';
+
+    const dialogRef = this.dialog.open(LoginComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('this is result: ' + result);
+
+    });
+
+  }
   signOut() {
     this.auth.setLogged(false, null);
     this.router.navigate(['/']);

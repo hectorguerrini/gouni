@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 import { UserService } from '../../user.service';
 import { Data } from '../../models/data';
 import { AuthService } from '../../auth.service';
+
+
 
 @Component({
   selector: 'app-login',
@@ -12,19 +15,23 @@ import { AuthService } from '../../auth.service';
 })
 export class LoginComponent implements OnInit {
   login: any;
-  constructor(private service: UserService, private router: Router, private auth: AuthService) { }
+  constructor(private service: UserService, private router: Router, private auth: AuthService,
+    public dialogRef: MatDialogRef<LoginComponent>
+  ) { }
 
   ngOnInit() {
     this.login = {};
   }
-
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
   loginUsuario() {
     this.service.loginUsuario('loginUsuario', this.login.email, this.login.senha)
     .subscribe((data: Data) => {
       if (data.message) {
         this.auth.setLogged(true, data.jsonRetorno[0].email);
+        this.dialogRef.close();
 
-        this.router.navigate(['/gouni']);
       }
 
     });

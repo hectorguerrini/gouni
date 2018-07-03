@@ -52,8 +52,12 @@
           <div id="header-top-second" class="clearfix text-right">
             <ul class="list-inline">
 
-              <li class="list-inline-item" *ngIf="!(logged | async)">
+              <!-- <li class="list-inline-item" *ngIf="!(logged | async)">
                 <a routerLink="/gouni/login"><i class="fa fa-user pr-1 pl-10" ></i>Entrar</a>
+              </li> -->
+              <li class="list-inline-item" *ngIf="!(logged | async)">
+
+                <button mat-raised-button (click)="login()" >Entrar</button>
               </li>
               <li class="list-inline-item" *ngIf="logged | async">
                 <i class="fa fa-user pr-1 pl-10"></i>{{user | async}}
