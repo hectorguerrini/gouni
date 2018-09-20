@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Router } from '@angular/router';
 
 import { LoginComponent } from '../login/login.component';
+import { CadastroComponent } from '../cadastro/cadastro.component';
 import { AuthService } from '../../auth.service';
 
 import { Observable } from 'rxjs';
@@ -43,10 +44,31 @@ export class NavbarComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('this is result: ' + result);
+      if ( result === 'cadastro') {
+        this.cadastro();
+      }
+
 
     });
 
   }
+  cadastro() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.hasBackdrop = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '630px';
+
+    const dialogRef = this.dialog.open(CadastroComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('this is result: ' + result);
+
+    });
+
+  }
+
   signOut() {
     this.auth.setLogged(false, null);
     this.router.navigate(['/']);

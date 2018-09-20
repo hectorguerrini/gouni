@@ -59,6 +59,10 @@
 
                 <button mat-raised-button (click)="login()" >Entrar</button>
               </li>
+              <li class="list-inline-item" *ngIf="!(logged | async)">
+
+                <button mat-raised-button (click)="cadastro()" >Cadastrar</button>
+              </li>
               <li class="list-inline-item" *ngIf="logged | async">
                 <i class="fa fa-user pr-1 pl-10"></i>{{user | async}}
               </li>

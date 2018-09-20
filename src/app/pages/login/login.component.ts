@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   loginUsuario() {
     this.service.loginUsuario('loginUsuario', this.login.email, this.login.senha)
     .subscribe((data: Data) => {
-      if (data.message) {
+      if (data.jsonRetorno.length > 0) {
         this.auth.setLogged(true, data.jsonRetorno[0].email);
         this.dialogRef.close();
 
@@ -37,4 +37,8 @@ export class LoginComponent implements OnInit {
     });
 
   }
+  irCadastro() {
+    this.dialogRef.close('cadastro');
+  }
+
 }

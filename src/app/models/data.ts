@@ -7,7 +7,6 @@ export class Model {
 }
 // classe usuario extendendo a classe Model
 export class Data extends Model {
-    message: boolean;
-    jsonRetorno: any[];
+    jsonRetorno: Array<any>;
     query: string;
 }

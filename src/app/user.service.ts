@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URLSearchParams } from '@angular/http';
+import { Api } from './models/api';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,14 @@ import { URLSearchParams } from '@angular/http';
 
 export class UserService {
 
-  private urlApi = 'http://hector.local/gouniapi/';
+  // private urlApi = 'http://www.hector.local/gouniapi/';
+  api: Api = new Api();
+  constructor(public http: HttpClient) {
 
-  constructor(public http: HttpClient) {}
+  }
 
   updateUsuario(chave: string, usuario: string, senha: string, nome: string, email: string, dt_nasc: string, tipo: string) {
-    const url = this.urlApi + chave;
+    const url = this.api.url + chave;
     const body = new URLSearchParams();
 
     body.set('usuario', usuario);
@@ -32,7 +35,7 @@ export class UserService {
   }
 
   loginUsuario(chave: string, email: string, senha: string) {
-    const url = this.urlApi + chave;
+    const url = this.api.url + chave;
     const body = new URLSearchParams();
 
     body.set('email', email);
