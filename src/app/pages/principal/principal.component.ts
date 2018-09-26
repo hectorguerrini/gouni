@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
 
 
 @Component({
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalComponent implements OnInit {
   curso: string;
-  constructor() {
+  busca = 'curso';
+  constructor(private router: Router) {
     console.log('Constructor Principal');
   }
 
@@ -16,5 +18,14 @@ export class PrincipalComponent implements OnInit {
     console.log('ngOnInit Principal');
   }
 
+  search() {
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        tipo : this.busca
+      }
+    };
+    const rota = this.curso ? this.curso : '';
+    this.router.navigate(['/gouni/lista/', rota], navigationExtras);
+  }
 
 }

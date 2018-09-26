@@ -1,0 +1,27 @@
+.status {
+  position: relative;
+  left: calc(50% - 48px);
+}
+.success:before{
+  color: green;
+  font-family: FontAwesome;
+  font-size: 112px;
+  content: "\f058";
+}
+.error:before{
+  color: #e31212f1;
+  font-family: FontAwesome;
+  font-size: 112px;
+  content: "\f057";
+}
+
+.login:before{
+  color: #e31212f1;
+  font-family: FontAwesome;
+  font-size: 112px;
+  content: "\f06a";
+}
+.status > label {
+  font-family: 'Times New Roman', Times, serif;
+
+}

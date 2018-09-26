@@ -10,23 +10,30 @@
 
         <!-- page-title start -->
         <!-- ================ -->
-        <div class="sorting-filters text-left mb-20" style="display: inline-block;">
-          <form class="form-inline">
-            <div class="form-group ">
-              <label>Busca:</label>
-              <input type="text" class="form-control" [(ngModel)]="curso" [ngModelOptions]="{standalone: true}">
-              <span class="btn btn-default-transparent btn-animation btn-animation--slide-horizontal margin-clear"
+
+          <form class="form-inline search">
+
+
+              <label class="col-1">Busca:</label>
+              <div class="col-6 input-group">
+                <input type="text" class="form-control" [(ngModel)]="curso" [ngModelOptions]="{standalone: true}" (keyup.enter)="search()">
+              </div>
+              <!-- <span class="col-2 btn btn-default-transparent btn-animation btn-animation--slide-horizontal margin-clear"
                 [routerLink]="['/gouni/lista/',curso?curso:'']"
               >
                   <i class="fa fa-search"></i>
-              </span>
-            </div>
+              </span> -->
+              <select class="custom-select col-3" [(ngModel)]="busca" [ngModelOptions]="{standalone: true}">
+                  <option [value]="'curso'">Curso</option>
+                  <option [value]="'universidade'">Universidade</option>
+              </select>
+              <button type="submit" class="btn btn-animation btn-default-transparent" (click)="search()"><i class="fa fa-search"></i></button>
           </form>
-        </div>
+
         <h1 class="page-title">Pesquisa</h1>
         <div class="separator-2"></div>
         <!-- page-title end -->
-        <p class="lead">Resultados para a pesquisa: {{curso}} - Retornou {{lista.length}} resultado{{lista.length>1?'s':''}} </p>
+        <p class="lead" *ngIf="lista">Resultados para a pesquisa: {{pesquisa}} - Retornou {{lista.length}} resultado{{lista.length>1?'s':''}} </p>
 
 
         <div class="image-box style-3-b">
@@ -41,11 +48,14 @@
             </div>
             <div class="col-md-6 col-lg-8 col-xl-9">
               <div class="body">
-                <h3 class="title">{{item.universidade}}</h3>
+                <h3 class="title">{{item.nome}}</h3>
                 <!-- <p class="small mb-10"><i class="fa fa-calendar-o pr-1"></i> Feb, 2017 <i class="pl-10 pr-1 fa fa-tag"></i> Web Design</p> -->
                 <div class="separator-2"></div>
                 <p class="mb-10">{{item.descricao}}</p>
-                <a class="btn btn-default-transparent btn-animation btn-animation--slide-horizontal margin-clear">Read More<i class="fa fa-arrow-right pl-10"></i></a>
+                <a class="btn btn-default-transparent btn-animation btn-animation--slide-horizontal margin-clear" (click)="detalhes(item.id)">
+                  Read More
+                  <i class="fa fa-arrow-right pl-10"></i>
+                </a>
               </div>
             </div>
           </div>

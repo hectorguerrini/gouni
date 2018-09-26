@@ -1,7 +1,7 @@
 export class Api {
   url: string;
   constructor() {
-    this.url = 'http://www.hector.local/gouniapi/';
+    this.url = 'http://localhost:3000/gouniapi/';
   }
 }
 

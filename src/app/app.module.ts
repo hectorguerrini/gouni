@@ -12,6 +12,8 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { ListaComponent } from './pages/lista/lista.component';
+import { UniversidadeComponent } from './pages/universidade/universidade.component';
+import { MessageComponent } from './dialogs/message/message.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ListaComponent } from './pages/lista/lista.component';
     PrincipalComponent,
     CadastroComponent,
     LoginComponent,
-    ListaComponent
+    ListaComponent,
+    UniversidadeComponent,
+    MessageComponent
 
   ],
   imports: [
@@ -34,7 +38,8 @@ import { ListaComponent } from './pages/lista/lista.component';
   ],
   entryComponents: [
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    MessageComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

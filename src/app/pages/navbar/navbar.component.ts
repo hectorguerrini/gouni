@@ -70,7 +70,7 @@ export class NavbarComponent implements OnInit {
   }
 
   signOut() {
-    this.auth.setLogged(false, null);
+    this.auth.setLogged(false, null, null);
     this.router.navigate(['/']);
 
   }

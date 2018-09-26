@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.service.loginUsuario('loginUsuario', this.login.email, this.login.senha)
     .subscribe((data: Data) => {
       if (data.jsonRetorno.length > 0) {
-        this.auth.setLogged(true, data.jsonRetorno[0].email);
+        this.auth.setLogged(true, data.jsonRetorno[0].email, data.jsonRetorno[0].id_usuario);
         this.dialogRef.close();
 
       }
