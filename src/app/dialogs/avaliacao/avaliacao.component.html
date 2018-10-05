@@ -1,0 +1,15 @@
+<div *ngFor="let item of campos " class="rating">
+  <label class="nome">{{item}}:</label>
+  <ngb-rating [(rate)]="aval[item]" [(max)]="maxNota" class="nota" >
+    <ng-template let-fill="fill" let-index="index">
+      <span class="star" [class.filled]="fill === 100"></span>
+    </ng-template>
+  </ngb-rating>  
+  
+</div>
+<mat-dialog-actions>
+  <button type="submit" class="btn btn-group btn-default btn-animated" (click)="updateAval()">Enviar
+    <i class="fa fa-check"></i>
+  </button>
+</mat-dialog-actions>
+

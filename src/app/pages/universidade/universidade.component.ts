@@ -8,6 +8,8 @@ import { AuthService } from '../../auth.service';
 
 import { Data } from '../../models/data';
 import { MessageComponent } from '../../dialogs/message/message.component';
+import { AvaliacaoComponent } from '../../dialogs/avaliacao/avaliacao.component';
+import { Dialogdata } from '../../models/dialogdata';
 @Component({
   selector: 'app-universidade',
   templateUrl: './universidade.component.html',
@@ -40,30 +42,29 @@ export class UniversidadeComponent implements OnInit {
   }
 
   setAval(aval) {
-    if (this.user.isLoggedIn) {
-      this.universidade.avaliacao = aval;
-    } else {
-      this.popup('login', 'Precisa estar cadastrado para usar essa funcionalidade. Efetue o login para continuar');
-    }
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.hasBackdrop = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '480px';
+    dialogConfig.data = {tipo: this.tipo, id: this.universidade.id };
+    const dialogRef = this.dialog.open(AvaliacaoComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe( (result: Dialogdata) => {
+      this.popup(result.status, result.message)
+    });
+
+
+    // if (this.user.isLoggedIn) {
+    //   this.universidade.avaliacao = aval;
+    // } else {
+    //   this.popup('login', 'Precisa estar cadastrado para usar essa funcionalidade. Efetue o login para continuar');
+    // }
 
   }
 
-  updateAval() {
-    if (this.user.isLoggedIn) {
-      this.avalService.updateAval(`avaliacao/${this.tipo}`, this.user.idLogged, this.universidade.id,
-        this.universidade.avaliacao.toString(), this.universidade.comentario
-      ).subscribe((data: Data) => {
-        if (data.jsonRetorno.length > 0) {
-          this.popup('success', 'Avaliação computada com sucesso.');
-        } else {
-          this.popup('error', 'Erro para enviar avaliação, Tente Novamente mais tarde.');
-        }
-
-      });
-    } else {
-      this.popup('login', 'Precisa estar cadastrado para usar essa funcionalidade. Efetue o login para continuar');
-    }
-  }
+  
   popup(status, message) {
     const dialogConfig = new MatDialogConfig();
 

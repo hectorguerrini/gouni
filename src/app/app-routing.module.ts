@@ -9,7 +9,6 @@ import { ListaComponent } from './pages/lista/lista.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { UniversidadeComponent } from './pages/universidade/universidade.component';
 
-
 const routes: Routes = [
   {
     path: 'gouni', component: NavbarComponent,

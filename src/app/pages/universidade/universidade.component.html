@@ -84,16 +84,8 @@
           </div> -->
           <div class="block clearfix" *ngIf="universidade">
             <h3 class="title">Avaliar</h3>
-            <div class="separator-2"></div>
-            <div class="rating">
-              <input type="radio" value="5" [checked]="universidade.avaliacao >= 5"><label class="full" (click)="setAval(5);"></label>
-              <input type="radio" value="4" [checked]="universidade.avaliacao >= 4"><label class="full" (click)="setAval(4);"></label>
-              <input type="radio" value="3" [checked]="universidade.avaliacao >= 3"><label class="full" (click)="setAval(3);"></label>
-              <input type="radio" value="2" [checked]="universidade.avaliacao >= 2"><label class="full" (click)="setAval(2);"></label>
-              <input type="radio" value="1" [checked]="universidade.avaliacao >= 1"><label class="full" (click)="setAval(1);"></label>
-            </div>
-            <textarea rows="4" maxlength="140" placeholder="Deixe um comentario." [(ngModel)]="universidade.comentario"></textarea>
-            <button class="btn btn-sm btn-default btn-animated" (click)="updateAval();">Enviar<i class="fa fa-check"></i></button>
+            <div class="separator-2"></div>            
+            <button class="btn btn-sm btn-default btn-animated" (click)="setAval();">Avaliar<i class="fa fa-check"></i></button>
 
           </div>
           <!-- <div class="block clearfix">
