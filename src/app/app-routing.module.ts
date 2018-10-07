@@ -11,6 +11,7 @@ import { UniversidadeComponent } from './pages/universidade/universidade.compone
 
 
 const routes: Routes = [
+
   {
     path: 'gouni', component: NavbarComponent,
     children: [
@@ -23,8 +24,8 @@ const routes: Routes = [
       { path: ':tipo', component: UniversidadeComponent },
       { path: ':tipo/:id', component: UniversidadeComponent },
     ]
-  },
-  {path: '' , redirectTo: '/gouni', pathMatch: 'full'}
+  }, {path: '**' , redirectTo: '/gouni', pathMatch: 'full'}
+
 
 
 ];

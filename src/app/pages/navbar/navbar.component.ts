@@ -16,18 +16,15 @@ import { Observable } from 'rxjs';
 export class NavbarComponent implements OnInit {
   logged: Observable<boolean>;
   user:  Observable<string>;
-  animal: string;
+
   name: string;
 
   constructor(private auth: AuthService, private router: Router, public dialog: MatDialog) {
-    console.log('Constructor NavBar');
+
   }
 
   ngOnInit() {
-    console.log('ngOnInit NavBar');
     this.logged = this.auth.isLoggedIn;
-    console.log(this.logged);
-
     this.user = this.auth.userLogged;
 
   }

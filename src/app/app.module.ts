@@ -14,6 +14,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ListaComponent } from './pages/lista/lista.component';
 import { UniversidadeComponent } from './pages/universidade/universidade.component';
 import { MessageComponent } from './dialogs/message/message.component';
+import { AvaliacaoComponent } from './dialogs/avaliacao/avaliacao.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MessageComponent } from './dialogs/message/message.component';
     LoginComponent,
     ListaComponent,
     UniversidadeComponent,
-    MessageComponent
+    MessageComponent,
+    AvaliacaoComponent
 
   ],
   imports: [

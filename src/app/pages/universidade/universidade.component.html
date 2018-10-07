@@ -44,7 +44,7 @@
         <p>{{universidade.descricao}}</p>
         <h3 class="title">{{tipo == 'curso' ? 'Universidades' : 'Cursos'}}</h3>
         <ul class="list-icons">
-          <li *ngFor="let item of universidade.filhos"><i class="fa" [ngClass]="{'fa-graduation-cap': tipo == 'universidade', 'fa-university': tipo == 'curso'}" ></i>{{item.nome}} - <i class="fa fa-clock-o"></i>Duração/Periodo: {{item.duracao}} Anos/{{item.periodo}}  </li>
+          <li *ngFor="let item of universidade.filhos" (click)="ir(item)"><i class="fa" [ngClass]="{'fa-graduation-cap': tipo == 'universidade', 'fa-university': tipo == 'curso'}" ></i>{{item.nome}} - <i class="fa fa-clock-o"></i>Duração/Periodo: {{item.duracao}} Anos/{{item.periodo}}  </li>
         </ul>
 
         <!-- <a href="#" class="btn btn-animated btn-default btn-lg">External Link <i class="fa fa-external-link"></i></a> -->
