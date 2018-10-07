@@ -33,4 +33,8 @@ export class AuthService {
   get idLogged() {
     return localStorage.getItem('id');
   }
+
+  get isLogged() {
+    return JSON.parse(localStorage.getItem('logged') || 'false');
+  }
 }

@@ -1,13 +1,16 @@
 
 .star:before {
     font-size: 1.5rem;
-    color: #FFED85;
+    color: darkgray;
     font-family: FontAwesome;
-    content: "\f005";
+    content: "\f006";
+
 
 }
 .filled:before {
     color: #FFD700;
+    font-family: FontAwesome;
+    content: "\f005";
 }
 .star{
     color: #ddd;

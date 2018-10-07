@@ -1,18 +1,24 @@
 export class Avaliacao {
-    Geral: number;
-    Limpeza: number;
-    Professores: number;
-    Instalações: number;
-    Estacionamento: number;
-    Lanchonetes: number;
-    Ensino: number;
+    universidade!: number;
+    curso!: number;
+    geral!: number;
+    limpeza: number;
+    professores: number;
+    instalações: number;
+    estacionamento: number;
+    lanchonetes: number;
+    ensino: number;
+    materiais: number;
+    conteudo: number;
     constructor() {
-        this.Geral = 0;
-        this.Limpeza = 0;
-        this.Professores = 0;
-        this.Instalações = 0;
-        this.Estacionamento = 0;
-        this.Lanchonetes = 0;
-        this.Ensino = 0;
+        this.geral = 0;
+        this.limpeza = 0;
+        this.professores = 0;
+        this.instalações = 0;
+        this.estacionamento = 0;
+        this.lanchonetes = 0;
+        this.ensino = 0;
+        this.materiais = 0;
+        this.conteudo = 0;
     }
 }

@@ -43,8 +43,11 @@
         <div class="separator-2"></div>
         <p>{{universidade.descricao}}</p>
         <h3 class="title">{{tipo == 'curso' ? 'Universidades' : 'Cursos'}}</h3>
-        <ul class="list-icons">
-          <li *ngFor="let item of universidade.filhos" (click)="ir(item)"><i class="fa" [ngClass]="{'fa-graduation-cap': tipo == 'universidade', 'fa-university': tipo == 'curso'}" ></i>{{item.nome}} - <i class="fa fa-clock-o"></i>Duração/Periodo: {{item.duracao}} Anos/{{item.periodo}}  </li>
+        <ul class="list-group">
+          <li class="list-group-item-action" *ngFor="let item of universidade.filhos" (click)="ir(item)">
+            <i class="fa" [ngClass]="{'fa-graduation-cap': tipo == 'universidade', 'fa-university': tipo == 'curso'}" ></i>
+            {{item.nome}} - <i class="fa fa-clock-o"></i>Duração/Periodo: {{item.duracao}} Anos/{{item.periodo}}
+          </li>
         </ul>
 
         <!-- <a href="#" class="btn btn-animated btn-default btn-lg">External Link <i class="fa fa-external-link"></i></a> -->
@@ -84,7 +87,7 @@
           </div> -->
           <div class="block clearfix" *ngIf="universidade">
             <h3 class="title">Avaliar</h3>
-            <div class="separator-2"></div>            
+            <div class="separator-2"></div>
             <button class="btn btn-sm btn-default btn-animated" (click)="setAval();">Avaliar<i class="fa fa-check"></i></button>
 
           </div>

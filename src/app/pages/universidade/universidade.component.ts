@@ -23,7 +23,7 @@ export class UniversidadeComponent implements OnInit {
   logged: Observable<boolean>;
 
   constructor(private acRouter: ActivatedRoute, private list: ListaService, private router: Router,
-    private avalService: AvalService, private user: AuthService, private dialog: MatDialog
+    private user: AuthService, private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -45,26 +45,22 @@ export class UniversidadeComponent implements OnInit {
   }
 
   setAval(aval) {
-    const dialogConfig = new MatDialogConfig();
+    if (this.user.isLogged) {
+      const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.disableClose = false;
-    dialogConfig.hasBackdrop = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '480px';
-    dialogConfig.data = {tipo: this.tipo, id: this.universidade.id };
-    const dialogRef = this.dialog.open(AvaliacaoComponent, dialogConfig);
+      dialogConfig.disableClose = false;
+      dialogConfig.hasBackdrop = true;
+      dialogConfig.autoFocus = true;
+      dialogConfig.width = '480px';
+      dialogConfig.height = '80%';
+      dialogConfig.data = this.universidade;
+      const dialogRef = this.dialog.open(AvaliacaoComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe( (result: Dialogdata) => {
-      this.popup(result.status, result.message);
-    });
-
-
-    // if (this.user.isLoggedIn) {
-    //   this.universidade.avaliacao = aval;
-    // } else {
-    //   this.popup('login', 'Precisa estar cadastrado para usar essa funcionalidade. Efetue o login para continuar');
-    // }
-
+      dialogRef.afterClosed().subscribe((result) => {
+      });
+    } else {
+      this.popup('login', 'Precisa estar cadastrado para usar essa funcionalidade. Efetue o login para continuar');
+    }
   }
 
 
@@ -87,55 +83,50 @@ export class UniversidadeComponent implements OnInit {
 
 
   getUniversidade(id) {
-    this.logged.subscribe(is => {
-      if (is) {
-        this.list.getUniversidade('universidade', id, this.user.idLogged)
+    if (this.user.isLogged) {
+      this.list.getUniversidade('universidade', id, this.user.idLogged)
         .subscribe((data: Data) => {
-          if (data.jsonRetorno.length > 0 ) {
+          if (data.jsonRetorno.length > 0) {
             this.universidade = data.jsonRetorno[0];
             console.log(this.universidade);
           } else {
             this.universidade = [];
           }
         });
-      } else {
-        this.list.getUniversidade('universidade', id)
+    } else {
+      this.list.getUniversidade('universidade', id)
         .subscribe((data: Data) => {
-          if (data.jsonRetorno.length > 0 ) {
+          if (data.jsonRetorno.length > 0) {
             this.universidade = data.jsonRetorno[0];
             console.log(this.universidade);
           } else {
             this.universidade = [];
           }
         });
-      }
-    });
-
+    }
   }
   getCurso(id) {
-    this.logged.subscribe(is => {
-      if (is) {
-        this.list.getUniversidade('curso', id, this.user.idLogged)
+    if (this.user.isLogged) {
+      this.list.getUniversidade('curso', id, this.user.idLogged)
         .subscribe((data: Data) => {
-          if (data.jsonRetorno.length > 0 ) {
+          if (data.jsonRetorno.length > 0) {
             this.universidade = data.jsonRetorno[0];
             console.log(this.universidade);
           } else {
             this.universidade = [];
           }
         });
-      } else {
-        this.list.getUniversidade('curso', id)
+    } else {
+      this.list.getUniversidade('curso', id)
         .subscribe((data: Data) => {
-          if (data.jsonRetorno.length > 0 ) {
+          if (data.jsonRetorno.length > 0) {
             this.universidade = data.jsonRetorno[0];
             console.log(this.universidade);
           } else {
             this.universidade = [];
           }
         });
-      }
-    });
+    }
   }
 
 

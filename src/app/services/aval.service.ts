@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URLSearchParams } from '@angular/http';
 import { Api } from '../models/api';
@@ -9,10 +9,10 @@ import { Avaliacao } from '../models/avaliacacao';
 })
 export class AvalService {
 
-  api: Api = new Api();
+  api: Api = new Api(isDevMode());
   constructor(public http: HttpClient) { }
 
-  updateAval(chave: string, user: string, id: string, avaliacao: Avaliacao) {
+  updateAval(chave: string, user: string, avaliacao: Avaliacao) {
     const url = `${this.api.url}${chave}/${user}`;
     // const body = new URLSearchParams();
 

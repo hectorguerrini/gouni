@@ -1,15 +1,26 @@
-<div *ngFor="let item of campos " class="rating">
-  <label class="nome">{{item}}:</label>
-  <ngb-rating [(rate)]="aval[item]" [(max)]="maxNota" class="nota" >
-    <ng-template let-fill="fill" let-index="index">
-      <span class="star" [class.filled]="fill === 100"></span>
-    </ng-template>
-  </ngb-rating>
+<h2 mat-dialog-title class="title">{{data.nome}}</h2>
 
-</div>
+<mat-dialog-content>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Curso:</label>
+    <div class="col-sm-10">
+      <input id="typeahead-focus" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" (click)="click.next($event.target.value)"
+        #instance="ngbTypeahead" />
+    </div>
+
+  </div>
+  <div *ngFor="let item of campos " class="rating">
+    <label class="nome">{{item.toUpperCase()}}:</label>
+    <ngb-rating [(rate)]="aval[item]" [(max)]="maxNota" class="nota">
+      <ng-template let-fill="fill" let-index="index">
+        <span class="star" [class.filled]="fill === 100"></span>
+      </ng-template>
+    </ngb-rating>
+
+  </div>
+</mat-dialog-content>
 <mat-dialog-actions>
   <button type="submit" class="btn btn-group btn-default btn-animated" (click)="updateAval()">Enviar
     <i class="fa fa-check"></i>
   </button>
 </mat-dialog-actions>
-
