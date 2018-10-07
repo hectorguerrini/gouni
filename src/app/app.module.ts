@@ -15,6 +15,7 @@ import { ListaComponent } from './pages/lista/lista.component';
 import { UniversidadeComponent } from './pages/universidade/universidade.component';
 import { MessageComponent } from './dialogs/message/message.component';
 import { AvaliacaoComponent } from './dialogs/avaliacao/avaliacao.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,12 +37,14 @@ import { AvaliacaoComponent } from './dialogs/avaliacao/avaliacao.component';
     HttpClientModule,
     FormsModule,
     MatDialogModule,
+    NgbModule.forRoot(),
 
   ],
   entryComponents: [
     NavbarComponent,
     LoginComponent,
-    MessageComponent
+    MessageComponent,
+    AvaliacaoComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

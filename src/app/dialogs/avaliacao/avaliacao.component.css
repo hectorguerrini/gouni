@@ -1,0 +1,33 @@
+
+.star:before {
+    font-size: 1.5rem;
+    color: #FFED85;
+    font-family: FontAwesome;
+    content: "\f005";
+
+}
+.filled:before {
+    color: #FFD700;
+}
+.star{
+    color: #ddd;
+}
+
+.rating {
+    position: relative;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: solid 1px darkgray;
+    margin-bottom: 20px;
+}
+.nome {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.nota {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+

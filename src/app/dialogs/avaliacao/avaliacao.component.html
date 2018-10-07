@@ -1,22 +1,15 @@
-<h2 mat-dialog-title class="title">Avaliação</h2>
-<form mat-dialog-content class="form-horizontal" #frl="ngForm">
-  <div class="form-group has-feedback row">
-    <div mat-form-field class="col-md-11">
-      <input type="email" class="form-control" placeholder="Email" [(ngModel)]="" [ngModelOptions]="{standalone: true}"
-        required>
-      <i class="fa fa-pencil form-control-feedback pr-4"></i>
-    </div>
-  </div>
-  <div class="form-group has-feedback row">
-    <div mat-form-field class="col-md-11">
-      <input type="password" class="form-control" placeholder="Senha" [(ngModel)]="" [ngModelOptions]="{standalone: true}"
-        required>
-      <i class="fa fa-pencil form-control-feedback pr-4"></i>
-    </div>
-  </div>
-</form>
+<div *ngFor="let item of campos " class="rating">
+  <label class="nome">{{item}}:</label>
+  <ngb-rating [(rate)]="aval[item]" [(max)]="maxNota" class="nota" >
+    <ng-template let-fill="fill" let-index="index">
+      <span class="star" [class.filled]="fill === 100"></span>
+    </ng-template>
+  </ngb-rating>
+
+</div>
 <mat-dialog-actions>
-  <button type="submit" class="btn btn-group btn-default btn-animated" (click)="">Enviar
+  <button type="submit" class="btn btn-group btn-default btn-animated" (click)="updateAval()">Enviar
     <i class="fa fa-check"></i>
   </button>
 </mat-dialog-actions>
+
