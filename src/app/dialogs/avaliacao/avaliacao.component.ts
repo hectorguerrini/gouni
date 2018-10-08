@@ -34,9 +34,9 @@ export class AvaliacaoComponent implements OnInit {
   ngOnInit() {
     this.campos = Object.keys(this.aval);
     if (this.data.tipo === 'curso') {
-      this.aval.curso = this.data.id;
+      this.aval.curso = this.data.id_tipo;
     } else if (this.data.tipo === 'universidade') {
-      this.aval.universidade = this.data.id;
+      this.aval.universidade = this.data.id_tipo;
     }
 
     this.model = '';
