@@ -1,9 +1,10 @@
-.list-group li:hover{
+.list-group .lista:hover{
   border: 1px solid black;
   border-radius: 30px;
   padding: 5px;
-  cursor: pointer;
+
 }
+
 .list-group li{
   display: inline-block;
 }
@@ -14,4 +15,24 @@ textarea {
   border: 1px solid gray;
   padding: 5px;
 
+}
+
+.head {
+  position: relative;
+}
+.head .title {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.head .nota {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.notaLista .star {
+  font-size: 1.0em;
 }

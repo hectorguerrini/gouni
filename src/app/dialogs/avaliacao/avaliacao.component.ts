@@ -33,7 +33,12 @@ export class AvaliacaoComponent implements OnInit {
 
   ngOnInit() {
     this.campos = Object.keys(this.aval);
-    this.aval.universidade = this.data.id;
+    if (this.data.tipo === 'curso') {
+      this.aval.curso = this.data.id;
+    } else if (this.data.tipo === 'universidade') {
+      this.aval.universidade = this.data.id;
+    }
+
     this.model = '';
   }
 
@@ -59,7 +64,12 @@ export class AvaliacaoComponent implements OnInit {
 
   updateAval() {
     if (this.model !== '' ) {
-      this.aval.curso = this.data.filhos.find(filho => filho.nome === this.model).id;
+      if (this.data.tipo === 'curso') {
+        this.aval.universidade = this.data.filhos.find(filho => filho.nome === this.model).id;
+      } else if (this.data.tipo === 'universidade') {
+        this.aval.curso = this.data.filhos.find(filho => filho.nome === this.model).id;
+      }
+
       this.avalService.updateAval(`avaliacao/universidade`, this.user.idLogged, this.aval)
       .subscribe((data: Data) => {
         if (data.jsonRetorno.length > 0) {

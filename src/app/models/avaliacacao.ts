@@ -4,7 +4,7 @@ export class Avaliacao {
     geral!: number;
     limpeza: number;
     professores: number;
-    instalações: number;
+    instalacoes: number;
     estacionamento: number;
     lanchonetes: number;
     ensino: number;
@@ -14,7 +14,7 @@ export class Avaliacao {
         this.geral = 0;
         this.limpeza = 0;
         this.professores = 0;
-        this.instalações = 0;
+        this.instalacoes = 0;
         this.estacionamento = 0;
         this.lanchonetes = 0;
         this.ensino = 0;

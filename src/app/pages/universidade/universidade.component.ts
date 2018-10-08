@@ -21,6 +21,7 @@ export class UniversidadeComponent implements OnInit {
   universidade: any;
   tipo: string;
   logged: Observable<boolean>;
+  maxNota = 5;
 
   constructor(private acRouter: ActivatedRoute, private list: ListaService, private router: Router,
     private user: AuthService, private dialog: MatDialog
@@ -57,6 +58,7 @@ export class UniversidadeComponent implements OnInit {
       const dialogRef = this.dialog.open(AvaliacaoComponent, dialogConfig);
 
       dialogRef.afterClosed().subscribe((result) => {
+        this.ngOnInit();
       });
     } else {
       this.popup('login', 'Precisa estar cadastrado para usar essa funcionalidade. Efetue o login para continuar');
@@ -88,7 +90,7 @@ export class UniversidadeComponent implements OnInit {
         .subscribe((data: Data) => {
           if (data.jsonRetorno.length > 0) {
             this.universidade = data.jsonRetorno[0];
-            console.log(this.universidade);
+            this.universidade.tipo = this.tipo;
           } else {
             this.universidade = [];
           }
@@ -98,7 +100,7 @@ export class UniversidadeComponent implements OnInit {
         .subscribe((data: Data) => {
           if (data.jsonRetorno.length > 0) {
             this.universidade = data.jsonRetorno[0];
-            console.log(this.universidade);
+            this.universidade.tipo = this.tipo;
           } else {
             this.universidade = [];
           }
@@ -111,7 +113,7 @@ export class UniversidadeComponent implements OnInit {
         .subscribe((data: Data) => {
           if (data.jsonRetorno.length > 0) {
             this.universidade = data.jsonRetorno[0];
-            console.log(this.universidade);
+            this.universidade.tipo = this.tipo;
           } else {
             this.universidade = [];
           }
@@ -121,7 +123,7 @@ export class UniversidadeComponent implements OnInit {
         .subscribe((data: Data) => {
           if (data.jsonRetorno.length > 0) {
             this.universidade = data.jsonRetorno[0];
-            console.log(this.universidade);
+            this.universidade.tipo = this.tipo;
           } else {
             this.universidade = [];
           }
