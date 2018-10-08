@@ -34,9 +34,9 @@ export class AvaliacaoComponent implements OnInit {
   ngOnInit() {
     this.campos = Object.keys(this.aval);
     if (this.data.tipo === 'curso') {
-      this.aval.curso = this.data.id_tipo;
+      this.aval.curso = this.data.id;
     } else if (this.data.tipo === 'universidade') {
-      this.aval.universidade = this.data.id_tipo;
+      this.aval.universidade = this.data.id;
     }
 
     this.model = '';
@@ -65,9 +65,9 @@ export class AvaliacaoComponent implements OnInit {
   updateAval() {
     if (this.model !== '' ) {
       if (this.data.tipo === 'curso') {
-        this.aval.universidade = this.data.filhos.find(filho => filho.nome === this.model).id;
+        this.aval.universidade = this.data.filhos.find(filho => filho.nome === this.model).id_tipo;
       } else if (this.data.tipo === 'universidade') {
-        this.aval.curso = this.data.filhos.find(filho => filho.nome === this.model).id;
+        this.aval.curso = this.data.filhos.find(filho => filho.nome === this.model).id_tipo;
       }
 
       this.avalService.updateAval(`avaliacao/universidade`, this.user.idLogged, this.aval)

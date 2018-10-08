@@ -45,7 +45,8 @@ export class UniversidadeComponent implements OnInit {
     });
   }
 
-  setAval(aval) {
+  setAval() {
+    console.log(this.universidade);
     if (this.user.isLogged) {
       const dialogConfig = new MatDialogConfig();
 
