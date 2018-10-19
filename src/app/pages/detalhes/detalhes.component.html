@@ -1,3 +1,84 @@
-<p>
-  detalhes works!
-</p>
+<section class="main-container padding-bottom-clear">
+
+    <div class="container">
+        <div class="row">
+            <div class="main col-lg-12 pv-40" *ngIf="detalhes">
+                <div class="head">
+                    <h3 class="title">{{detalhes.sigla}} - {{detalhes.nome}}</h3>
+                </div>
+                <div class="separator-2"></div>
+                <h4 class="title">{{detalhes.curso}}</h4>
+                <div class="row">
+                    <label class="col-4 text-center"><strong>Gouni:</strong></label>
+                    <label class="col-4 text-center"><strong>Mec:</strong></label>
+                    <label class="col-4 text-center"><strong>Guia Estudante:</strong></label>
+                </div>
+                <div class="row">
+                    <div class="text-center col-4">
+                        <label *ngIf="!detalhes.gouni">Sem Avaliação</label>
+                        <ngb-rating *ngIf="detalhes.gouni" [(rate)]="detalhes.gouni" [(max)]="maxNota" class="nota" [readonly]="true">
+                            <ng-template let-fill="fill" let-index="index">
+                                <span class="star" [class.filled]="fill === 100"></span>
+                            </ng-template>
+                        </ngb-rating>
+                    </div>
+                    <div class="text-center col-4">
+                        <label *ngIf="!detalhes.mec">Sem Avaliação</label>
+                        <ngb-rating *ngIf="detalhes.mec" [(rate)]="detalhes.mec" [(max)]="maxNota" class="nota " [readonly]="true">
+                            <ng-template let-fill="fill" let-index="index">
+                                <span class="star" [class.filled]="fill === 100"></span>
+                            </ng-template>
+                        </ngb-rating>
+                    </div>
+
+                    <div class="text-center col-4">
+                        <label *ngIf="!detalhes.guia_estudante">Sem Avaliação</label>
+                        <ngb-rating *ngIf="detalhes.guia_estudante" [(rate)]="detalhes.guia_estudante" [(max)]="maxNota" class="nota " [readonly]="true">
+                            <ng-template let-fill="fill" let-index="index">
+                                <span class="star" [class.filled]="fill === 100"></span>
+                            </ng-template>
+                        </ngb-rating>
+                    </div>
+
+                </div>
+
+                <div class="separator-2"></div>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="col-4 text-center"><strong>Periodo:</strong></label>
+                        <label class="col-4 text-center"><strong>Duração:</strong></label>
+                        <label class="col-4 text-center"><strong>Mensalidade ±</strong></label>
+                    </div>
+                    <div class="col-12">
+                        <label class="col-4 text-center">{{detalhes.periodo}}</label>
+                        <label class="col-4 text-center">{{detalhes.duracao}} {{detalhes.duracao !== 1 ? 'Anos' :
+                            'Ano'}}</label>
+                        <label class="col-4 text-center">{{(detalhes.mensalidade ? detalhes.mensalidade : 0) | currency:'BRL'}}</label>
+                    </div>
+
+
+                    <div class="separator-2"></div>
+                    <div class="testimonial text-center col-12" *ngFor="let item of paginacao.lista">
+
+                        <h3>{{item.titulo}}</h3>
+                        <div class="testimonial-info-1"><i>{{formatData(item.data)}}</i></div>
+                        <div class="separator"></div>
+                        <div class="testimonial-body">
+                            <blockquote>
+                                <p>{{item.comentario}}</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="paginator col-12">
+                        <mat-paginator *ngIf="paginacao.lista.length > 0" [length]="paginacao.length" [pageSize]="paginacao.pageSize"
+                            [pageSizeOptions]="paginacao.pageSizeOptions" (page)="page($event)">
+                        </mat-paginator>
+                    </div>
+                    <div *ngIf="detalhes.comentarios.length == 0" class="noAval col-12">
+                        <h5>O Curso de {{detalhes.curso}} da {{detalhes.sigla}} ainda não foi avaliado!</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

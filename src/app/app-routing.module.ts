@@ -8,6 +8,7 @@ import { ListaComponent } from './pages/lista/lista.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { UniversidadeComponent } from './pages/universidade/universidade.component';
 import { CompareComponent } from './pages/compare/compare.component';
+import { DetalhesComponent } from './pages/detalhes/detalhes.component';
 
 const routes: Routes = [
 
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'lista', component: ListaComponent },
       { path: 'lista/:tipo', component: ListaComponent },
       { path: 'compare', component: CompareComponent },
+      { path: 'detalhes/:id_uni/:id_curso', component: DetalhesComponent },
       { path: ':tipo', component: UniversidadeComponent },
       { path: ':tipo/:id', component: UniversidadeComponent },
 

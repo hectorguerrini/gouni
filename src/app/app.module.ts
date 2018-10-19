@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -22,7 +22,9 @@ import { CompareComponent } from './pages/compare/compare.component';
 import { FormatLabelPipe } from './pipes/format-label.pipe';
 import { MaskMoneyDirective } from './directives/mask-money.directive';
 import { DetalhesComponent } from './pages/detalhes/detalhes.component';
-
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -60,7 +62,7 @@ import { DetalhesComponent } from './pages/detalhes/detalhes.component';
     AvaliacaoComponent,
     CadastroComponent
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -54,7 +54,7 @@ export class PrincipalComponent implements OnInit {
             dialogConfig.disableClose = false;
             dialogConfig.hasBackdrop = true;
             dialogConfig.autoFocus = true;
-            // dialogConfig.width = '900px';
+            dialogConfig.width = '900px';
             //   dialogConfig.height = '80%';
             dialogConfig.data = this.combo;
             const dialogRef = this.dialog.open(AvaliacaoComponent, dialogConfig);

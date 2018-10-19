@@ -21,12 +21,15 @@
         </div>
       </div>
     </form>
+    <label *ngIf="error" class="error"><i>Login ou senha invalidos!</i></label>
     <mat-dialog-actions>
       <button type="submit" class="btn btn-group btn-default btn-animated" (click)="loginUsuario()">Login
         <i class="fa fa-check"></i>
       </button>
 
-      <button class="btn btn-group btn-default btn-animated" (click)="irCadastro()">Cadastrar</button>
+      <button class="btn btn-group btn-default btn-animated" (click)="irCadastro()">Cadastrar
+            <i class="fa fa-check"></i>
+      </button>
     </mat-dialog-actions>
 
   <!-- .subfooter start -->

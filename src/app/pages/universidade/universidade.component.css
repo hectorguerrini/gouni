@@ -43,6 +43,9 @@ textarea {
   margin-top: 10px;
   margin-bottom: 5px;
 }
+.cabecalho i{
+    cursor: pointer;
+}
 .comparar {
     cursor: pointer;
     border: solid 1px;

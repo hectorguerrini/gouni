@@ -16,24 +16,27 @@
                     </tr>
                     <tr *ngFor="let campo of composSubHeader">
                         <td class="item">{{campo | formatLabel}}</td>
-                        <td [hidden]="['mec','guia_estudante'].indexOf(campo) == -1" *ngFor="let item of comparacoes" class="text-center">
-                            <ngb-rating [(rate)]="item[campo]" [(max)]="maxNota" class="notaLista"
+                        <td [hidden]="['mec','guia_estudante','gouni'].indexOf(campo) > -1" *ngFor="let item of comparacoes" class="text-center">
+                                {{item[campo] | currency:'BRL'}}
+                        </td>
+                        <td [hidden]="['mec','guia_estudante','gouni'].indexOf(campo) == -1" *ngFor="let item of comparacoes" class="text-center">
+                            <label *ngIf="!item[campo]">Sem Avaliação</label>
+                            <ngb-rating *ngIf="item[campo]" [(rate)]="item[campo]" [(max)]="maxNota" class="notaLista"
                                 [readonly]="true">
                                 <ng-template let-fill="fill" let-index="index">
                                     <span class="star" [class.filled]="fill === 100"></span>
                                 </ng-template>
                             </ngb-rating>
                         </td>
-                        <td [hidden]="['mec','guia_estudante'].indexOf(campo) > -1" *ngFor="let item of comparacoes" class="text-center">
-                            {{item[campo] | currency:'BRL'}}
-                        </td>
+
                     </tr>
 
 
                     <tr *ngFor="let campo of campos">
                         <td class="item">{{campo | formatLabel}}</td>
                         <td *ngFor="let item of comparacoes" class="text-center">
-                            <ngb-rating [(rate)]="item[campo]" [(max)]="maxNota" class="notaLista"
+                            <label *ngIf="!item[campo]">Sem Avaliação</label>
+                            <ngb-rating *ngIf="item[campo]" [(rate)]="item[campo]" [(max)]="maxNota" class="notaLista"
                                 [readonly]="true">
                                 <ng-template let-fill="fill" let-index="index">
                                     <span class="star" [class.filled]="fill === 100"></span>

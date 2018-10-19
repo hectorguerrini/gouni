@@ -16,6 +16,7 @@ import { MessageComponent } from 'src/app/dialogs/message/message.component';
 })
 export class LoginComponent implements OnInit {
   login: any;
+  error = false;
   constructor(private service: UserService, private dialog: MatDialog, private auth: AuthService,
     public dialogRef: MatDialogRef<LoginComponent>
   ) { }
@@ -35,6 +36,8 @@ export class LoginComponent implements OnInit {
 
         this.dialogRef.close();
 
+      } else {
+        this.error = true;
       }
 
     });

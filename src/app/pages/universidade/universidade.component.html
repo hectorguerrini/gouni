@@ -4,35 +4,7 @@
         <div class="row">
 
             <div class="col-12">
-                <!-- Nav tabs -->
-                <!-- <ul class="nav nav-tabs style-1" role="tablist">
-          <li class="nav-item"><a class="nav-link active" href="#pill-1" role="tab" data-toggle="tab" title="video"><i
-                class="fa fa-camera pr-1"></i> Image</a></li>
-          <li class="nav-item"><a class="nav-link" href="#pill-2" role="tab" data-toggle="tab" title="text"><i class="fa fa-video-camera pr-1"></i>
-              Video</a></li>
-        </ul> -->
-                <!-- Tab panes -->
-                <!-- <div class="tab-content space-bottom">
-          <div class="tab-pane active" id="pill-1">
-            <div class="overlay-container overlay-visible">
-              <img src="assets/images/portfolio-item-1.jpg" alt="">
-              <div class="overlay-bottom hidden-xs">
-                <div class="text">
-                  <h3 class="title">Caption Title</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum optio odio, recusandae qui
-                    minima eveniet cumque praesentium expedita sint accusamus itaque.</p>
-                </div>
-              </div>
-              <a href="assets/images/portfolio-item-1.jpg" class="popup-img overlay-link" title="image title"><i class="fa fa-plus"></i></a>
-            </div>
-          </div>
-          <div class="tab-pane" id="pill-2">
-            <div class="overlay-container">
-              <img src="assets/images/page-about-2.jpg" alt="">
-              <a class="overlay-link" href="#"><i class="fa fa-link"></i></a>
-            </div>
-          </div>
-        </div> -->
+
                 <!-- pills end -->
             </div>
             <div class="clearfix"></div>
@@ -53,11 +25,11 @@
                 <ul class="list-group">
                     <li class="cabecalho">
                         <div class="row">
-                            <span class="col-md-3 text-center"><i class="fa" [ngClass]="{'fa-graduation-cap': tipo == 'universidade', 'fa-university': tipo == 'curso'}"></i></span>
+                            <span class="col-md-3 text-center"><i class="fa" [ngClass]="{'fa-graduation-cap': tipo == 'universidade', 'fa-university': tipo == 'curso'}"></i> <i class="fa" [ngClass]="{'fa-sort-up': sort == 1, 'fa-sort-down': sort == -1, 'fa-sort': sort !== 1 && sort !== -1}" (click)="sortBy(1)"></i></span>
                             <!-- <span class="col-md-2 text-center"><i class="fa fa-clock-o"></i></span> -->
-                            <span class="col-md-3 text-center">Gouni</span>
-                            <span class="col-md-2 text-center">Mec</span>
-                            <span class="col-md-2 text-center">Guia Estudante</span>
+                            <span class="col-md-3 text-center">Gouni <i class="fa" [ngClass]="{'fa-sort-up': sort == 2, 'fa-sort-down': sort == -2, 'fa-sort': sort !== 2 && sort !== -2}" (click)="sortBy(2)"></i></span>
+                            <span class="col-md-2 text-center">Mec <i class="fa" [ngClass]="{'fa-sort-up': sort == 3, 'fa-sort-down': sort == -3, 'fa-sort': sort !== 3 && sort !== -3}" (click)="sortBy(3)"></i></span>
+                            <span class="col-md-2 text-center">Guia Estudante <i class="fa" [ngClass]="{'fa-sort-up': sort == 4, 'fa-sort-down': sort == -4, 'fa-sort': sort !== 4 && sort !== -4}" (click)="sortBy(4)"></i></span>
                             <span class="col-md-2 text-center" *ngIf="tipo=='curso'"><label class="comparar" (click)="comparar();">
                                     Comparar</label></span>
 
@@ -72,21 +44,24 @@
                                 {{item.duracao}}/{{item.periodo}}
                             </div> -->
                             <div class="col-md-3 text-center">
-                                <ngb-rating [(rate)]="item.mediageral" [(max)]="maxNota" class="notaLista" [readonly]="true">
+                                <label *ngIf="!item.mediageral">Sem Avaliação</label>
+                                <ngb-rating *ngIf="item.mediageral" [(rate)]="item.mediageral" [(max)]="maxNota" class="notaLista" [readonly]="true">
                                     <ng-template let-fill="fill" let-index="index">
                                         <span class="star" [class.filled]="fill === 100"></span>
                                     </ng-template>
                                 </ngb-rating>
                             </div>
                             <div class="col-md-2 text-center">
-                                <ngb-rating [(rate)]="item.mec" [(max)]="maxNota" class="notaLista" [readonly]="true">
+                                <label *ngIf="!item.mec">Sem Avaliação</label>
+                                <ngb-rating *ngIf="item.mec" [(rate)]="item.mec" [(max)]="maxNota" class="notaLista" [readonly]="true">
                                     <ng-template let-fill="fill" let-index="index">
                                         <span class="star" [class.filled]="fill === 100"></span>
                                     </ng-template>
                                 </ngb-rating>
                             </div>
                             <div class="col-md-2 text-center">
-                                <ngb-rating [(rate)]="item.guia_estudante" [(max)]="maxNota" class="notaLista" [readonly]="true">
+                                <label *ngIf="!item.guia_estudante">Sem Avaliação</label>
+                                <ngb-rating *ngIf="item.guia_estudante" [(rate)]="item.guia_estudante" [(max)]="maxNota" class="notaLista" [readonly]="true">
                                     <ng-template let-fill="fill" let-index="index">
                                         <span class="star" [class.filled]="fill === 100"></span>
                                     </ng-template>
@@ -113,7 +88,7 @@
                 </mat-paginator>
                 <!-- <a href="#" class="btn btn-animated btn-default btn-lg">External Link <i class="fa fa-external-link"></i></a> -->
                 <hr>
-                <div class="testimonial text-center">
+                <!-- <div class="testimonial text-center">
 
                     <h3>Just Perfect!</h3>
                     <div class="separator"></div>
@@ -126,7 +101,7 @@
                         </blockquote>
 
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- main end -->
 

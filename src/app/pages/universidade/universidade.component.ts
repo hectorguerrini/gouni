@@ -23,6 +23,8 @@ export class UniversidadeComponent implements OnInit {
     logged: Observable<boolean>;
     maxNota = 5;
     position = 'before';
+    sort = 2;
+    reverse = false;
     listCompare = new Array<any>();
     paginacao: Paginacao;
     constructor(private acRouter: ActivatedRoute, private list: ListaService, private router: Router,
@@ -49,7 +51,15 @@ export class UniversidadeComponent implements OnInit {
     }
 
 
-
+    sortBy(col) {
+        this.reverse = !this.reverse;
+        this.sort = col * (this.reverse ? -1 : 1);
+        if (this.tipo === 'curso') {
+            this.getCurso(this.universidade.id);
+        } else if (this.tipo === 'universidade') {
+            this.getUniversidade(this.universidade.id);
+        }
+    }
 
     popup(status, message) {
         const dialogConfig = new MatDialogConfig();
@@ -71,7 +81,7 @@ export class UniversidadeComponent implements OnInit {
 
     getUniversidade(id) {
         if (this.user.isLogged) {
-            this.list.getUniversidade('universidade', id, this.user.idLogged)
+            this.list.getUniversidade('universidade', id, this.sort, this.user.idLogged)
                 .subscribe((data: Data) => {
                     if (data.jsonRetorno.length > 0) {
                         this.universidade = data.jsonRetorno[0];
@@ -87,7 +97,7 @@ export class UniversidadeComponent implements OnInit {
                     }
                 });
         } else {
-            this.list.getUniversidade('universidade', id)
+            this.list.getUniversidade('universidade', id, this.sort)
                 .subscribe((data: Data) => {
                     if (data.jsonRetorno.length > 0) {
                         this.universidade = data.jsonRetorno[0];
@@ -106,7 +116,7 @@ export class UniversidadeComponent implements OnInit {
     }
     getCurso(id) {
         if (this.user.isLogged) {
-            this.list.getUniversidade('curso', id, this.user.idLogged)
+            this.list.getUniversidade('curso', id, this.sort, this.user.idLogged)
                 .subscribe((data: Data) => {
                     if (data.jsonRetorno.length > 0) {
                         this.universidade = data.jsonRetorno[0];
@@ -122,7 +132,7 @@ export class UniversidadeComponent implements OnInit {
                     }
                 });
         } else {
-            this.list.getUniversidade('curso', id)
+            this.list.getUniversidade('curso', id, this.sort)
                 .subscribe((data: Data) => {
                     if (data.jsonRetorno.length > 0) {
                         this.universidade = data.jsonRetorno[0];
@@ -142,11 +152,17 @@ export class UniversidadeComponent implements OnInit {
 
 
     ir(item) {
-        if (this.tipo === 'curso') {
-            this.router.navigate(['/gouni/universidade/', item.id_tipo]);
-        } else if (this.tipo === 'universidade') {
-            this.router.navigate(['/gouni/curso/', item.id_tipo]);
+        if (this.user.isLogged) {
+            if (this.tipo === 'curso') {
+                this.router.navigate([`/gouni/detalhes/${item.id_tipo}/${this.universidade.id}`]);
+            } else if (this.tipo === 'universidade') {
+                this.router.navigate([`/gouni/detalhes/${this.universidade.id}/${item.id_tipo}`]);
+            }
+        } else {
+            this.popup('login', 'Precisa estar cadastrado para usar essa funcionalidade. Efetue o login para continuar');
         }
+
+
     }
     OnChange(value) {
         if (value.compare) {

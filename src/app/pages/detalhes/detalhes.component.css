@@ -1,0 +1,9 @@
+.paginator {
+    text-align: right !important;
+}
+
+.noAval {
+    text-align: center !important;
+    margin-top: 20px;
+    color: darkgrey;
+}

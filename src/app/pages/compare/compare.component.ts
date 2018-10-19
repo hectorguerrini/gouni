@@ -16,7 +16,7 @@ export class CompareComponent implements OnInit {
     campos: Array<any>;
     avalicoes: Avaliacao = new Avaliacao;
     maxNota = 5;
-    composSubHeader = ['mec', 'guia_estudante', 'mensalidade'];
+    composSubHeader = ['mensalidade', 'mec', 'guia_estudante' , 'gouni'];
     constructor(private acRouter: ActivatedRoute, private avalService: AvalService, private router: Router) { }
 
     ngOnInit() {

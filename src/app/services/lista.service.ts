@@ -40,10 +40,22 @@ export class ListaService {
       )
     });
   }
-  getUniversidade(chave: string, id: string, user?: string) {
+  getUniversidade(chave: string, id: string, order: number, user?: string) {
     const url = `${this.api.url}${chave}/${id}${user ? `/${user}` : '' }`;
+    const body = new URLSearchParams();
 
-    return this.http.post(url, '', {
+    body.set('order', order.toString());
+    return this.http.post(url, body.toString(), {
+      headers: new HttpHeaders().set(
+        'Content-Type',
+        'application/x-www-form-urlencoded'
+      )
+    });
+  }
+  getDetalhes(chave: string, id_uni: string, id_curso: string) {
+    const url = `${this.api.url}${chave}/${id_uni}/${id_curso}`;
+
+    return this.http.get(url, {
       headers: new HttpHeaders().set(
         'Content-Type',
         'application/x-www-form-urlencoded'
