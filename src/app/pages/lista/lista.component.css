@@ -1,9 +1,15 @@
 .btn {
   cursor: pointer;
 }
-.search {
-  width: 50%;
-}
+
 .custom-select {
   padding: 5px;
+}
+
+.title {
+  display: inline-block;
+}
+.compare {
+  position: absolute;
+  right: 0;
 }

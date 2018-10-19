@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, Router } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 
-import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
-import { LoginComponent } from './pages/login/login.component';
+
 import { ListaComponent } from './pages/lista/lista.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { UniversidadeComponent } from './pages/universidade/universidade.component';
+import { CompareComponent } from './pages/compare/compare.component';
 
 const routes: Routes = [
 
@@ -16,12 +16,12 @@ const routes: Routes = [
     children: [
 
       { path: '', component: PrincipalComponent },
-      { path: 'signup', component: CadastroComponent },
-      { path: 'login', component: LoginComponent },
       { path: 'lista', component: ListaComponent },
-      { path: 'lista/:curso', component: ListaComponent },
+      { path: 'lista/:tipo', component: ListaComponent },
+      { path: 'compare', component: CompareComponent },
       { path: ':tipo', component: UniversidadeComponent },
       { path: ':tipo/:id', component: UniversidadeComponent },
+
     ]
   }, {path: '**' , redirectTo: '/gouni', pathMatch: 'full'}
 

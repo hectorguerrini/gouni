@@ -1,6 +1,8 @@
 export class Avaliacao {
-    universidade!: number;
-    curso!: number;
+    universidade!: string;
+    curso!: string;
+    id_universidade!: number;
+    id_curso!: number;
     geral!: number;
     limpeza: number;
     professores: number;
@@ -10,6 +12,11 @@ export class Avaliacao {
     ensino: number;
     materiais: number;
     conteudo: number;
+    mec: number;
+    guia_estudante: number;
+    mensalidade: string;
+    titulo: string;
+    comentario: string;
     constructor() {
         this.geral = 0;
         this.limpeza = 0;

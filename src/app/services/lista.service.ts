@@ -14,6 +14,19 @@ export class ListaService {
   constructor(public http: HttpClient) {
   }
 
+  getCombo(chave: string, combo: string, id: string) {
+    const url = `${this.api.url}${chave}/${combo}`;
+    const body = new URLSearchParams();
+
+    body.set('id', id);
+
+    return this.http.post(url, body.toString(), {
+      headers: new HttpHeaders().set(
+        'Content-Type',
+        'application/x-www-form-urlencoded'
+      )
+    });
+  }
   getLista(chave: string, nome: string) {
     const url = this.api.url + chave;
     const body = new URLSearchParams();

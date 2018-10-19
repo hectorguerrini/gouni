@@ -1,18 +1,18 @@
 <section class="main-container padding-bottom-clear">
 
-  <div class="container">
-    <div class="row">
+    <div class="container">
+        <div class="row">
 
-      <div class="col-12">
-        <!-- Nav tabs -->
-        <!-- <ul class="nav nav-tabs style-1" role="tablist">
+            <div class="col-12">
+                <!-- Nav tabs -->
+                <!-- <ul class="nav nav-tabs style-1" role="tablist">
           <li class="nav-item"><a class="nav-link active" href="#pill-1" role="tab" data-toggle="tab" title="video"><i
                 class="fa fa-camera pr-1"></i> Image</a></li>
           <li class="nav-item"><a class="nav-link" href="#pill-2" role="tab" data-toggle="tab" title="text"><i class="fa fa-video-camera pr-1"></i>
               Video</a></li>
         </ul> -->
-        <!-- Tab panes -->
-        <!-- <div class="tab-content space-bottom">
+                <!-- Tab panes -->
+                <!-- <div class="tab-content space-bottom">
           <div class="tab-pane active" id="pill-1">
             <div class="overlay-container overlay-visible">
               <img src="assets/images/portfolio-item-1.jpg" alt="">
@@ -33,101 +33,126 @@
             </div>
           </div>
         </div> -->
-        <!-- pills end -->
-      </div>
-      <div class="clearfix"></div>
-      <!-- main start -->
-      <!-- ================ -->
-      <div class="main col-lg-8 pv-40" *ngIf="universidade">
-        <div class="head">
-          <h1 class="title">{{universidade.nome}}</h1>
-          <ngb-rating [(rate)]="universidade.mediageral" [(max)]="maxNota" class="nota" [readonly]="true">
-            <ng-template let-fill="fill" let-index="index">
-              <span class="star" [class.filled]="fill === 100"></span>
-            </ng-template>
-          </ngb-rating>
-        </div>
-        <div class="separator-2"></div>
-        <p>{{universidade.descricao}}</p>
-        <h3 class="title">{{tipo == 'curso' ? 'Universidades' : 'Cursos'}}</h3>
-        <ul class="list-group">
-          <li>
-            <div class="row">
-              <span class="col-sm-5 text-center"><i class="fa" [ngClass]="{'fa-graduation-cap': tipo == 'universidade', 'fa-university': tipo == 'curso'}"></i></span>
-              <span class="col-sm-2 text-center"><i class="fa fa-clock-o"></i></span>
-              <span class="col-sm-3 text-center"><i class="fa fa-star"></i></span>
-
+                <!-- pills end -->
             </div>
-          </li>
-          <li class="list-group-item-action lista" *ngFor="let item of universidade.filhos" (click)="ir(item)">
-            <div class="row">
-                <div class="col-sm-5">
-                    {{item.nome}}
-                </div>
-                <div class="col-sm-2 text-center">
-                    {{item.duracao}}/{{item.periodo}}
-                </div>
-                <div class="col-sm-3 text-center">
-                    <ngb-rating [(rate)]="item.mediageral" [(max)]="maxNota" class="notaLista"
-                        [readonly]="true">
+            <div class="clearfix"></div>
+            <!-- main start -->
+            <!-- ================ -->
+            <div class="main col-lg-12 pv-40" *ngIf="universidade">
+                <div class="head">
+                    <h3 class="title">{{universidade.nome}}</h3>
+                    <ngb-rating [(rate)]="universidade.mediageral" [(max)]="maxNota" class="nota" [readonly]="true">
                         <ng-template let-fill="fill" let-index="index">
                             <span class="star" [class.filled]="fill === 100"></span>
                         </ng-template>
                     </ngb-rating>
                 </div>
-              <!-- <label class="col-sm-2 text-center">{{item.mediauser ? item.mediauser : '?' }}/{{item.mediageral ? item.mediageral : '?'}}</label> -->
-              <!-- <i class="fa" [ngClass]="{'fa-graduation-cap': tipo == 'universidade', 'fa-university': tipo == 'curso'}" ></i>
+                <div class="separator-2"></div>
+                <p>{{universidade.descricao}}</p>
+                <h3 class="title">{{tipo == 'curso' ? 'Universidades' : 'Cursos'}}</h3>
+                <ul class="list-group">
+                    <li class="cabecalho">
+                        <div class="row">
+                            <span class="col-md-3 text-center"><i class="fa" [ngClass]="{'fa-graduation-cap': tipo == 'universidade', 'fa-university': tipo == 'curso'}"></i></span>
+                            <!-- <span class="col-md-2 text-center"><i class="fa fa-clock-o"></i></span> -->
+                            <span class="col-md-3 text-center">Gouni</span>
+                            <span class="col-md-2 text-center">Mec</span>
+                            <span class="col-md-2 text-center">Guia Estudante</span>
+                            <span class="col-md-2 text-center" *ngIf="tipo=='curso'"><label class="comparar" (click)="comparar();">
+                                    Comparar</label></span>
+
+                        </div>
+                    </li>
+                    <li class="list-group-item-action lista" *ngFor="let item of paginacao.lista">
+                        <div class="row">
+                            <div class="col-md-3" (click)="ir(item)">
+                                {{item.nome}}
+                            </div>
+                            <!-- <div class="col-md-2 text-center">
+                                {{item.duracao}}/{{item.periodo}}
+                            </div> -->
+                            <div class="col-md-3 text-center">
+                                <ngb-rating [(rate)]="item.mediageral" [(max)]="maxNota" class="notaLista" [readonly]="true">
+                                    <ng-template let-fill="fill" let-index="index">
+                                        <span class="star" [class.filled]="fill === 100"></span>
+                                    </ng-template>
+                                </ngb-rating>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <ngb-rating [(rate)]="item.mec" [(max)]="maxNota" class="notaLista" [readonly]="true">
+                                    <ng-template let-fill="fill" let-index="index">
+                                        <span class="star" [class.filled]="fill === 100"></span>
+                                    </ng-template>
+                                </ngb-rating>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <ngb-rating [(rate)]="item.guia_estudante" [(max)]="maxNota" class="notaLista" [readonly]="true">
+                                    <ng-template let-fill="fill" let-index="index">
+                                        <span class="star" [class.filled]="fill === 100"></span>
+                                    </ng-template>
+                                </ngb-rating>
+                            </div>
+                            <div class="col-md-2 text-center" *ngIf="tipo=='curso'">
+                                <mat-checkbox class="compare" [(ngModel)]="item.compare" (change)="OnChange(item)"></mat-checkbox>
+                            </div>
+
+                            <!-- <label class="col-sm-2 text-center">{{item.mediauser ? item.mediauser : '?' }}/{{item.mediageral ? item.mediageral : '?'}}</label> -->
+                            <!-- <i class="fa" [ngClass]="{'fa-graduation-cap': tipo == 'universidade', 'fa-university': tipo == 'curso'}" ></i>
                 {{item.nome}} - <i class="fa fa-clock-o"></i>Duração/Periodo: {{item.duracao}} Anos/{{item.periodo}} -->
+                        </div>
+
+                    </li>
+                </ul>
+                <mat-paginator *ngIf="paginacao.lista"
+                    [length]="paginacao.length"
+                    [pageSize]="paginacao.pageSize"
+                    [pageSizeOptions]="paginacao.pageSizeOptions"
+                    (page)="page($event)"
+                    >
+
+                </mat-paginator>
+                <!-- <a href="#" class="btn btn-animated btn-default btn-lg">External Link <i class="fa fa-external-link"></i></a> -->
+                <hr>
+                <div class="testimonial text-center">
+
+                    <h3>Just Perfect!</h3>
+                    <div class="separator"></div>
+                    <div class="testimonial-body">
+                        <blockquote>
+                            <p>Sed ut perspiciatis unde omnis iste natu error sit voluptatem accusan tium dolore laud
+                                antium, totam
+                                rem dolor sit amet tristique pulvinar, turpis arcu rutrum nunc, ac laoreet turpis augue
+                                a justo.</p>
+                        </blockquote>
+
+                    </div>
+                </div>
             </div>
+            <!-- main end -->
 
-          </li>
-        </ul>
-
-        <!-- <a href="#" class="btn btn-animated btn-default btn-lg">External Link <i class="fa fa-external-link"></i></a> -->
-        <hr>
-        <div class="testimonial text-center">
-          <div class="testimonial-image">
-            <img src="assets/images/testimonial-1.jpg" alt="Jane Doe" title="Jane Doe" class="rounded-circle">
-          </div>
-          <h3>Just Perfect!</h3>
-          <div class="separator"></div>
-          <div class="testimonial-body">
-            <blockquote>
-              <p>Sed ut perspiciatis unde omnis iste natu error sit voluptatem accusan tium dolore laud antium, totam
-                rem dolor sit amet tristique pulvinar, turpis arcu rutrum nunc, ac laoreet turpis augue a justo.</p>
-            </blockquote>
-            <div class="testimonial-info-1">- Jane Doe</div>
-            <div class="testimonial-info-2">By Company</div>
-          </div>
-        </div>
-      </div>
-      <!-- main end -->
-
-      <!-- sidebar start -->
-      <!-- ================ -->
-      <aside class="col-lg-4 col-xl-3 ml-xl-auto pv-40">
+            <!-- sidebar start -->
+            <!-- ================ -->
+            <!-- <aside class="col-lg-4 col-xl-3 ml-xl-auto pv-40">
         <div class="sidebar">
-          <!-- <div class="block clearfix">
-            <h3 class="title">Avaliações</h3>
-            <div class="separator-2"></div>
-            <ul class="list margin-clear">
-              <li><strong>Client: </strong> <span class="text-right">John Doe</span></li>
-              <li><strong>Date: </strong> <span class="text-right">May 2017</span></li>
-              <li><strong>In: </strong> <span class="text-right">Web Design</span></li>
-              <li><strong>Place: </strong> <span class="text-right">Europe</span></li>
-              <li><strong>URL: </strong> <span class="text-right"><a href="#">www.theproject.com</a></span></li>
-            </ul>
-          </div> -->
           <div class="block clearfix" *ngIf="universidade">
             <h3 class="title">Avaliar</h3>
             <div class="separator-2"></div>
             <button class="btn btn-sm btn-default btn-animated" (click)="setAval();">Avaliar<i class="fa fa-check"></i></button>
 
           </div>
+          <div class="block clearfix" *ngIf="listCompare.length > 0" >
+            <h3 class="title">Comparações</h3>
+            <div class="separator-2"></div>
+            <ul class="list margin-clear">
+              <li *ngFor="let item of listCompare"><span class="text-right">{{item.nome}}</span></li>
+            </ul>
+            <button class="btn btn-sm btn-default btn-animated text-right" (click)="comparar();">Comparar<i class="fa fa-check"></i></button>
 
+          </div>
         </div>
-      </aside>
-      <!-- sidebar end -->
+
+      </aside> -->
+            <!-- sidebar end -->
+        </div>
     </div>
-  </div>
 </section>

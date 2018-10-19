@@ -47,11 +47,95 @@
           <button type="submit" class="btn btn-lg btn-gray-transparent btn-animated margin-clear" (click)="search()">Pesquisar agora
             <i class="fa fa-check"></i>
           </button>
-          <!-- <button type="submit" class="btn btn-lg btn-gray-transparent btn-animated margin-clear">Avaliar minha Facul
+          <button type="submit" class="btn btn-lg btn-gray-transparent btn-animated margin-clear" (click)="setAval()">Avaliar minha Facul
             <i class="fa fa-check"></i>
-          </button> -->
+          </button>
         </form>
       </div>
     </div>
   </div>
 </div>
+<!-- footer start (Add "dark" class to #footer in order to enable dark footer) -->
+      <!-- ================ -->
+      <footer id="footer" class="clearfix">
+
+          <!-- .footer start -->
+          <!-- ================ -->
+          <div class="footer">
+            <div class="container">
+              <div class="footer-inner">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <div class="footer-content">
+                      <div class="logo-footer"><img id="logo-footer" src="../images/logo_gold.png" alt=""></div>
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <p>Nós da GoUni temos como objetivo auxiliar jovens ingressantes do ensino médio, e também alunos que já estão cursando uma instituição de nível superior que estão felizes com sua faculdade e gostariam de indicar para outras pessoas, e registrar seus comentários sobre o curso e universidades, e vamos com foco nessa missão, paz e luz.</p>
+                          <ul class="social-links circle animated-effect-1">
+                            <li class="facebook"><a target="_blank" href="http://www.facebook.com/GoUniOficial"><i class="fa fa-facebook"></i></a></li>
+                          </ul>
+                          <ul class="list-icons">
+                            <li><i class="fa fa-map-marker pr-10 text-default"></i> CUBO R. Casa do Ator, 919 - Vl Olímpia - SP</li>
+                            <li><i class="fa fa-phone pr-10 text-default"></i> +55 11 3550 2000</li>
+                            <li><a href="mailto:gouniversidades@gmail.com"><i class="fa fa-envelope-o pr-10"></i>gouniversidades@gmail.com</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-lg-6">
+                          <div id="map-canvas"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="footer-content">
+                      <h2 class="title">Fale Conosco</h2>
+                      <br>
+                      <div class="alert alert-success hidden-xs-up" id="MessageSent2">
+                        We have received your message, we will contact you very soon.
+                      </div>
+                      <div class="alert alert-danger hidden-xs-up" id="MessageNotSent2">
+                        Oops! Something went wrong please refresh the page and try again.
+                      </div>
+                      <form id="footer-form" class="margin-clear">
+                        <div class="form-group has-feedback">
+                          <label class="sr-only" for="name2">Nome</label>
+                          <input type="text" class="form-control" id="name2" placeholder="Nome" name="name2">
+                          <i class="fa fa-user form-control-feedback"></i>
+                        </div>
+                        <div class="form-group has-feedback">
+                          <label class="sr-only" for="email2">Endereço E-Mail</label>
+                          <input type="email" class="form-control" id="email2" placeholder="Email" name="email2">
+                          <i class="fa fa-envelope form-control-feedback"></i>
+                        </div>
+                        <div class="form-group has-feedback">
+                          <label class="sr-only" for="message2">Mensagem</label>
+                          <textarea class="form-control" rows="6" id="message2" placeholder="Mensagem" name="message2"></textarea>
+                          <i class="fa fa-pencil form-control-feedback"></i>
+                        </div>
+                        <input type="submit" value="Enviar" class="margin-clear submit-button btn btn-default">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- .footer end -->
+
+          <!-- .subfooter start -->
+          <!-- ================ -->
+          <div class="subfooter">
+            <div class="container">
+              <div class="subfooter-inner">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="text-center">Copyright © 2017 Projeto por <a target="_blank" href="https://www.facebook.com/GoUniOficial">GoUni</a>. Todos os Direitos Reservados</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- .subfooter end -->
+
+        </footer>
+        <!-- footer end -->

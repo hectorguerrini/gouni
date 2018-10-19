@@ -1,0 +1,76 @@
+<section class="main-container">
+    <div class="container">
+        <div class="row">
+            <div class="main col-12">
+                <h1 class="page-title">Comparações</h1>
+                <h3 class="page-title"></h3>
+                <div class="separator-2"></div>
+                <table class="table">
+                    <colgroup>
+                        <col width="20%">
+                        <col *ngFor="let item of comparacoes" width="{{80 / comparacoes.length}}%">
+                    </colgroup>
+                    <tr class="titulo">
+                        <td>Avaliações:</td>
+                        <td *ngFor="let item of comparacoes" class="text-center"> {{item.sigla ? item.sigla : item.nome }}</td>
+                    </tr>
+                    <tr *ngFor="let campo of composSubHeader">
+                        <td class="item">{{campo | formatLabel}}</td>
+                        <td [hidden]="['mec','guia_estudante'].indexOf(campo) == -1" *ngFor="let item of comparacoes" class="text-center">
+                            <ngb-rating [(rate)]="item[campo]" [(max)]="maxNota" class="notaLista"
+                                [readonly]="true">
+                                <ng-template let-fill="fill" let-index="index">
+                                    <span class="star" [class.filled]="fill === 100"></span>
+                                </ng-template>
+                            </ngb-rating>
+                        </td>
+                        <td [hidden]="['mec','guia_estudante'].indexOf(campo) > -1" *ngFor="let item of comparacoes" class="text-center">
+                            {{item[campo] | currency:'BRL'}}
+                        </td>
+                    </tr>
+
+
+                    <tr *ngFor="let campo of campos">
+                        <td class="item">{{campo | formatLabel}}</td>
+                        <td *ngFor="let item of comparacoes" class="text-center">
+                            <ngb-rating [(rate)]="item[campo]" [(max)]="maxNota" class="notaLista"
+                                [readonly]="true">
+                                <ng-template let-fill="fill" let-index="index">
+                                    <span class="star" [class.filled]="fill === 100"></span>
+                                </ng-template>
+                            </ngb-rating>
+                        </td>
+                    </tr>
+
+
+                    <!-- <div class="col-5 item" *ngFor="let item of comparacoes">
+              <div class="row">
+                <div class="col-12 text-center titulo">
+                  {{item.nome.toUpperCase()}}
+                </div>
+                <div class="col-12 text-left titulo">
+                  Avaliações:
+                </div>
+                <div class="separator-2"></div>
+                <div class="col-12" *ngFor="let campo of campos">
+                  <div class="row">
+                      <div class="col-8 text-left campoaval">
+                          {{campo | formatLabel}}
+                      </div>
+                      <ngb-rating [(rate)]="item[campo]" [(max)]="maxNota" class="notaLista col-4"
+                        [readonly]="true">
+                        <ng-template let-fill="fill" let-index="index">
+                          <span class="star" [class.filled]="fill === 100"></span>
+                        </ng-template>
+                    </ngb-rating>
+                  </div>
+                </div>
+
+              </div>
+            </div> -->
+
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

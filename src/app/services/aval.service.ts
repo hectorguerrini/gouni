@@ -27,4 +27,19 @@ export class AvalService {
       )
     });
   }
+  compareUniversidades(chave: string, id_curso: string, ids: string ) {
+    const url = `${this.api.url}${chave}/${id_curso}`;
+    const body = new URLSearchParams();
+
+    body.set('ids', ids);
+    // body.set('avaliacao', aval);
+    // body.set('comment', comentario);
+
+    return this.http.post(url, body.toString(), {
+      headers: new HttpHeaders().set(
+        'Content-Type',
+        'application/x-www-form-urlencoded'
+      )
+    });
+  }
 }

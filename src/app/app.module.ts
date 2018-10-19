@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -16,6 +18,11 @@ import { UniversidadeComponent } from './pages/universidade/universidade.compone
 import { MessageComponent } from './dialogs/message/message.component';
 import { AvaliacaoComponent } from './dialogs/avaliacao/avaliacao.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CompareComponent } from './pages/compare/compare.component';
+import { FormatLabelPipe } from './pipes/format-label.pipe';
+import { MaskMoneyDirective } from './directives/mask-money.directive';
+import { DetalhesComponent } from './pages/detalhes/detalhes.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +34,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ListaComponent,
     UniversidadeComponent,
     MessageComponent,
-    AvaliacaoComponent
+    AvaliacaoComponent,
+    CompareComponent,
+    FormatLabelPipe,
+    MaskMoneyDirective,
+    DetalhesComponent
 
   ],
   imports: [
@@ -37,6 +48,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     MatDialogModule,
+    MatCheckboxModule,
+    MatPaginatorModule,
     NgbModule.forRoot(),
 
   ],
@@ -44,7 +57,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavbarComponent,
     LoginComponent,
     MessageComponent,
-    AvaliacaoComponent
+    AvaliacaoComponent,
+    CadastroComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

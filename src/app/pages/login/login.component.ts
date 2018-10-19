@@ -1,10 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatDialogConfig} from '@angular/material';
 
 import { UserService } from '../../user.service';
 import { Data } from '../../models/data';
 import { AuthService } from '../../auth.service';
+import { MessageComponent } from 'src/app/dialogs/message/message.component';
 
 
 
@@ -15,7 +16,7 @@ import { AuthService } from '../../auth.service';
 })
 export class LoginComponent implements OnInit {
   login: any;
-  constructor(private service: UserService, private router: Router, private auth: AuthService,
+  constructor(private service: UserService, private dialog: MatDialog, private auth: AuthService,
     public dialogRef: MatDialogRef<LoginComponent>
   ) { }
 
@@ -30,6 +31,8 @@ export class LoginComponent implements OnInit {
     .subscribe((data: Data) => {
       if (data.jsonRetorno.length > 0) {
         this.auth.setLogged(true, data.jsonRetorno[0].email, data.jsonRetorno[0].id_usuario);
+        this.popup('success', 'Login efetuado com sucesso!');
+
         this.dialogRef.close();
 
       }
@@ -39,6 +42,21 @@ export class LoginComponent implements OnInit {
   }
   irCadastro() {
     this.dialogRef.close('cadastro');
+  }
+  popup(status, message) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.hasBackdrop = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '260px';
+    dialogConfig.data = {status: status, message: message};
+    const dialogRef = this.dialog.open(MessageComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+
   }
 
 }

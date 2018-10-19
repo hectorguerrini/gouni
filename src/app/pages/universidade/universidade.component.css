@@ -4,7 +4,9 @@
   padding: 5px;
 
 }
-
+.lista .row div:first-child {
+  cursor: pointer;
+}
 .list-group li{
   display: inline-block;
 }
@@ -35,4 +37,20 @@ textarea {
 
 .notaLista .star {
   font-size: 1.0em;
+}
+
+.cabecalho {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.comparar {
+    cursor: pointer;
+    border: solid 1px;
+    border-radius: 20px;
+    padding: 5px;
+    border-color: #a88d38;
+}
+.comparar:hover {
+    border-color: #a88d38;
+    background-color: #b0984d;
 }
